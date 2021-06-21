@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /*
-Copyright (c) 2014, Intel Corporation
+Copyright (c) 2021, Intel Corporation
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -25,7 +25,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 "use strict";
 var endpoint = "127.0.0.1"
-var port     = 41234
+var port     = 7070
 
 // Check for valid parameters
 if (process.argv.length != 4) {
@@ -36,13 +36,18 @@ if (process.argv.length != 4) {
 // Format JSON message containing name/value pair
 var component = process.argv[2];
 var value     = process.argv[3];
-var data = "{\"n\": \"" + component + "\", \"v\": \"" + value + "\"}";
+var message = "{\"n\": \"" + component + "\", \"v\": \"" + value + "\"}";
 
-// Send UDP message to local agent
-var dgram = require('dgram');
-var message = new Buffer(data);
-var client = dgram.createSocket("udp4");
-client.send(message, 0, message.length, port, endpoint, function() {
-    client.close();
+// Send TCP message to local agent
+var net = require('net');
+
+var client = new net.Socket();
+
+client.connect(port, endpoint, function() {
+    client.write(message);
+    client.end();
+});
+
+client.on('close', function() {
     process.exit(0);
 });
