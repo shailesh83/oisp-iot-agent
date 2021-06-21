@@ -1,5 +1,5 @@
 # IOT Agent Device GitOps Framework
-This Framework Blueprint for GitOps Sequence Flow for OnBoarding Gateway Devices for Industry Fusion.
+Framework blueprint for GitOps Sequence Flow to OnBoard Gateway Devices for Industry Fusion.
 
 ## Installation Pre-Requisites:
 In order to setup and onboard assets on your gateway you need to do the following:
@@ -108,5 +108,5 @@ configmap/global-devices-config created
 secret "global-devices-secret" deleted
 ...........
 ```
-8.After the Gitops Deployment yaml is complied from different GitRepo's , We push the all.yaml file to GitOpS Repo for Rancher-Fleet Plugin to 
-  initate the OnBoarding process for choosen Cluster and Node.
+8. After the Gitops deployment yaml is complied from different GitRepo's , We push the all.yaml 
+   file to GitOpS Repo for Rancher-Fleet Plugin to initiate the OnBoarding process for the choosen Cluster and Node.
