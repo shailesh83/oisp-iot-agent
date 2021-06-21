@@ -88,7 +88,6 @@ echo --- >> $WORKDIR/all.yaml
 cat $WORKDIR/globalsecret.yaml >> $WORKDIR/all.yaml
 echo --- >> $WORKDIR/all.yaml
 
-
 cat $WORKDIR/configmap.yaml >> $WORKDIR/all.yaml
 echo --- >> $WORKDIR/all.yaml
 cat $WORKDIR/pvc.yaml >> $WORKDIR/all.yaml
