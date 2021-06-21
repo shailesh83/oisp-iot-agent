@@ -108,5 +108,5 @@ configmap/global-devices-config created
 secret "global-devices-secret" deleted
 ...........
 ```
-8. After the Gitops deployment yaml is complied from different GitRepo's , We push the all.yaml 
+8. After the Gitops deployment yaml is complied from different GitRepo's , We push the all.yaml
    file to GitOpS Repo for Rancher-Fleet Plugin to initiate the OnBoarding process for the choosen Cluster and Node.
